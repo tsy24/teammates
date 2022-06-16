@@ -185,7 +185,8 @@ export class QuestionSubmissionFormComponent implements OnInit {
    * Triggers the clearing of the recipient submission form.
    */
   triggerRecipientSubmissionFormClear(): void {
-    const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] = this.model.recipientSubmissionForms;
+    const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] =
+        this.model.recipientSubmissionForms;
     recipientSubmissionForms.forEach((form: FeedbackResponseRecipientSubmissionFormModel) => {
       const details: FeedbackConstantSumResponseDetails = form.responseDetails as FeedbackConstantSumResponseDetails;
       details.answers = [];
@@ -250,7 +251,8 @@ export class QuestionSubmissionFormComponent implements OnInit {
   }
 
   isFormEmpty(): boolean {
-    const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] = this.model.recipientSubmissionForms;
+    const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] =
+        this.model.recipientSubmissionForms;
     return recipientSubmissionForms.every((form: FeedbackResponseRecipientSubmissionFormModel) => {
       const details: FeedbackConstantSumResponseDetails = form.responseDetails as FeedbackConstantSumResponseDetails;
       return details.answers.length === 0;

@@ -180,7 +180,7 @@
     </div>
     <div *ngIf="model.questionType === FeedbackQuestionType.CONSTSUM_RECIPIENTS && !isFormEmpty()" class="col-12 constraint-margins">
       <button type="button" (click)="triggerRecipientSubmissionFormClear()" [disabled]="isFormsDisabled" class="btn btn-light btn-sm">Clear Points</button>
-    </div> 
+    </div>
     <div class="row" *ngIf="model.recipientList.length > 0">
       <div class="col-12 text-center">
         <button id="btn-submit-qn-{{ model.questionNumber }}" type="submit" class="btn btn-success"

@@ -250,6 +250,9 @@ export class QuestionSubmissionFormComponent implements OnInit {
         this.model.questionType, responseDetails);
   }
 
+  /**
+   * Checks whether the recipient submission form is empty or not.
+   */
   isFormEmpty(): boolean {
     const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] =
         this.model.recipientSubmissionForms;

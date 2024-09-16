@@ -3,6 +3,7 @@ import { FeedbackQuestionsService } from '../../../services/feedback-questions.s
 import { FeedbackResponsesService } from '../../../services/feedback-responses.service';
 import { VisibilityStateMachine } from '../../../services/visibility-state-machine';
 import {
+  FeedbackConstantSumResponseDetails,
   FeedbackParticipantType,
   FeedbackQuestionType, FeedbackResponseDetails, FeedbackTextQuestionDetails,
   FeedbackVisibilityType,
@@ -187,6 +188,22 @@ export class QuestionSubmissionFormComponent implements DoCheck {
   }
 
   /**
+   * Triggers the clearing of the recipient submission form.
+   */
+  triggerRecipientSubmissionFormClear(): void {
+    const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] =
+        this.model.recipientSubmissionForms;
+    recipientSubmissionForms.forEach((form: FeedbackResponseRecipientSubmissionFormModel) => {
+      const details: FeedbackConstantSumResponseDetails = form.responseDetails as FeedbackConstantSumResponseDetails;
+      details.answers = [];
+    });
+    this.formModelChange.emit({
+      ...this.model,
+      recipientSubmissionForms,
+    });
+  }
+
+  /**
    * Triggers deletion of a participant comment associated with the response.
    */
   triggerDeleteCommentEvent(index: number): void {
@@ -237,6 +254,18 @@ export class QuestionSubmissionFormComponent implements DoCheck {
   isFeedbackResponseDetailsEmpty(responseDetails: FeedbackResponseDetails): boolean {
     return this.feedbackResponseService.isFeedbackResponseDetailsEmpty(
         this.model.questionType, responseDetails);
+  }
+
+  /**
+   * Checks whether the recipient submission form is empty or not.
+   */
+  isFormEmpty(): boolean {
+    const recipientSubmissionForms: FeedbackResponseRecipientSubmissionFormModel[] =
+        this.model.recipientSubmissionForms;
+    return recipientSubmissionForms.every((form: FeedbackResponseRecipientSubmissionFormModel) => {
+      const details: FeedbackConstantSumResponseDetails = form.responseDetails as FeedbackConstantSumResponseDetails;
+      return details.answers.length === 0;
+    });
   }
 
   /**

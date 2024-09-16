@@ -1929,6 +1929,16 @@ exports[`SessionSubmissionPageComponent should snap with feedback session questi
               </tm-constsum-recipients-question-constraint>
             </div>
             <div
+              class="col-12 constraint-margins"
+            >
+              <button
+                class="btn btn-light btn-sm"
+                type="button"
+              >
+                Clear Points
+              </button>
+            </div>
+            <div
               class="row"
             >
               <div
@@ -4316,6 +4326,17 @@ exports[`SessionSubmissionPageComponent should snap with feedback session questi
                   </div>
                 </div>
               </tm-constsum-recipients-question-constraint>
+            </div>
+            <div
+              class="col-12 constraint-margins"
+            >
+              <button
+                class="btn btn-light btn-sm"
+                disabled=""
+                type="button"
+              >
+                Clear Points
+              </button>
             </div>
             <div
               class="row"
